@@ -19,6 +19,7 @@
       scroll-snap-align: start;
       width: 100%;
       height: 100vh;
+      position: relative;
     }
     .carousel-arrow {
       position: absolute;
@@ -39,7 +40,7 @@
   <!-- Carousel -->
   <div class="carousel" id="carousel">
     <!-- Home Section -->
-    <section id="home" class="flex flex-row items-center justify-center bg-black p-8 space-x-8 overflow-y-auto">
+    <section id="home" class="flex flex-row items-center justify-center bg-black p-8 space-x-8">
       <div class="w-1/2 max-w-3xl text-left">
         <h1 class="text-5xl font-bold mb-4">DJ Kastro</h1>
         <p class="text-lg leading-relaxed">
@@ -47,27 +48,43 @@
           Known for high-energy performances and innovative animation, DJ Kastro brings a unique vibe to every event.
         </p>
       </div>
-      <div class="w-1/2 flex justify-center">
-        <img src="KASTRO.png" alt="DJ Kastro" class="w-full max-h-96 object-contain rounded-lg">
+      <div class="w-1/2 h-full flex justify-center">
+        <img src="KASTRO.png" alt="DJ Kastro" class="h-full object-contain rounded-lg">
       </div>
+      <button class="carousel-arrow left" onclick="scrollCarousel(-1)">&#10094;</button>
+      <button class="carousel-arrow right" onclick="scrollCarousel(1)">&#10095;</button>
     </section>
 
     <!-- Events Section -->
-    <section id="events" class="flex flex-col items-center justify-center bg-gradient-to-r from-purple-800 to-pink-700 p-12">
+    <section id="events" class="flex flex-col items-center justify-center bg-gradient-to-r from-purple-800 to-pink-700 p-12 space-y-6">
       <h2 class="text-4xl font-bold mb-6">Upcoming Events</h2>
       <ul class="space-y-4 text-lg">
         <li>25 July 2025 - Sunset Vibes, Miami</li>
         <li>12 August 2025 - City Lights Festival, NYC</li>
         <li>2 September 2025 - Beatwave Beach Party, LA</li>
       </ul>
+      <div class="flex space-x-4 mt-6">
+        <img src="event1.jpg" alt="Event 1" class="w-40 h-40 object-cover rounded-lg">
+        <img src="event2.jpg" alt="Event 2" class="w-40 h-40 object-cover rounded-lg">
+        <img src="event3.jpg" alt="Event 3" class="w-40 h-40 object-cover rounded-lg">
+      </div>
+      <button class="carousel-arrow left" onclick="scrollCarousel(-1)">&#10094;</button>
+      <button class="carousel-arrow right" onclick="scrollCarousel(1)">&#10095;</button>
     </section>
 
     <!-- Equipment Section -->
-    <section id="equipment" class="flex flex-col items-center justify-center bg-gray-800 p-12">
+    <section id="equipment" class="flex flex-col items-center justify-center bg-gray-800 p-12 space-y-6">
       <h2 class="text-4xl font-bold mb-6">My Gear</h2>
       <p class="text-lg max-w-xl text-center">
         DJ Kastro uses industry-standard equipment including Pioneer DJ mixers, Technics turntables, and custom animation rigs to synchronize visuals with music in real time.
       </p>
+      <div class="flex space-x-4 mt-6">
+        <img src="gear1.jpg" alt="Gear 1" class="w-40 h-40 object-cover rounded-lg">
+        <img src="gear2.jpg" alt="Gear 2" class="w-40 h-40 object-cover rounded-lg">
+        <img src="gear3.jpg" alt="Gear 3" class="w-40 h-40 object-cover rounded-lg">
+      </div>
+      <button class="carousel-arrow left" onclick="scrollCarousel(-1)">&#10094;</button>
+      <button class="carousel-arrow right" onclick="scrollCarousel(1)">&#10095;</button>
     </section>
 
     <!-- Contact Section -->
@@ -79,11 +96,9 @@
         <textarea placeholder="Your Message" class="w-full p-3 rounded text-black" rows="4" required></textarea>
         <button type="submit" class="bg-yellow-500 text-black px-6 py-2 rounded font-bold hover:bg-yellow-400">Send Message</button>
       </form>
+      <button class="carousel-arrow left" onclick="scrollCarousel(-1)">&#10094;</button>
+      <button class="carousel-arrow right" onclick="scrollCarousel(1)">&#10095;</button>
     </section>
-
-    <!-- Arrows -->
-    <button class="carousel-arrow left" onclick="scrollCarousel(-1)">&#10094;</button>
-    <button class="carousel-arrow right" onclick="scrollCarousel(1)">&#10095;</button>
   </div>
 
   <script>
