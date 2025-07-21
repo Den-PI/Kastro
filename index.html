@@ -8,9 +8,11 @@
   <style>
     .carousel {
       display: flex;
-      overflow-x: auto;
+      overflow-x: hidden;
       scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
+      position: relative;
+      width: 100%;
+      height: 100vh;
     }
     .carousel > section {
       flex: none;
@@ -18,15 +20,28 @@
       width: 100%;
       height: 100vh;
     }
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 1rem;
+      cursor: pointer;
+      z-index: 20;
+    }
+    .carousel-arrow.left { left: 1rem; }
+    .carousel-arrow.right { right: 1rem; }
   </style>
 </head>
 <body class="bg-gray-900 text-white font-sans">
   <!-- Carousel -->
-  <div class="carousel">
+  <div class="carousel" id="carousel">
     <!-- Home Section -->
-    <section id="home" class="relative flex items-center justify-center bg-black">
-      <img src="KASTRO.png" alt="DJ Kastro" class="h-full object-cover absolute inset-0 opacity-50">
-      <div class="relative z-10 max-w-3xl text-left p-8 bg-black bg-opacity-50 rounded-lg">
+    <section id="home" class="flex flex-col items-center justify-center bg-black p-8 space-y-8 overflow-y-auto">
+      <img src="KASTRO.png" alt="DJ Kastro" class="w-full max-h-96 object-contain rounded-lg">
+      <div class="max-w-3xl text-left">
         <h1 class="text-5xl font-bold mb-4">DJ Kastro</h1>
         <p class="text-lg leading-relaxed">
           DJ Kastro is a passionate DJ and animator, blending beats and visuals into unforgettable experiences. 
@@ -63,6 +78,21 @@
         <button type="submit" class="bg-yellow-500 text-black px-6 py-2 rounded font-bold hover:bg-yellow-400">Send Message</button>
       </form>
     </section>
+
+    <!-- Arrows -->
+    <button class="carousel-arrow left" onclick="scrollCarousel(-1)">&#10094;</button>
+    <button class="carousel-arrow right" onclick="scrollCarousel(1)">&#10095;</button>
   </div>
+
+  <script>
+    const carousel = document.getElementById('carousel');
+    const sections = carousel.querySelectorAll('section');
+    let currentIndex = 0;
+
+    function scrollCarousel(direction) {
+      currentIndex = (currentIndex + direction + sections.length) % sections.length;
+      carousel.scrollTo({ left: currentIndex * window.innerWidth, behavior: 'smooth' });
+    }
+  </script>
 </body>
 </html>
